@@ -67,6 +67,7 @@ namespace CardGame
             Print($"Your score is {player.score}!");
             Pause();
             Clear();
+            StartNewGame();
         }
 
         //public void GameEnd()
@@ -76,7 +77,13 @@ namespace CardGame
         //    //menu.GameStart();
 
         //}
-
+        public void StartNewGame()
+        {
+            ReadKey(true);
+            Clear();
+            Menu menu2 = new Menu();
+            menu2.Start();
+        }
 
     }
 }

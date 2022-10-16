@@ -13,6 +13,7 @@ namespace CardGame
     internal class HighestMatch:Game
     {
         bool play = true;
+        int handValue;
         
         public override void GameStart()
         {
@@ -101,10 +102,27 @@ namespace CardGame
 
         private void EndResult()
         {
+            CheckHandValue();
+            Print($"Thanks for playing! Your hand value was {handValue}.");
             Print("This is the end");
-            
+            StartNewGame();
         }
 
+        private void CheckHandValue()
+        { 
+            for(int i = 0; i < player.hand.Count; i++)
+            {
+                handValue += player.hand[i].Value;
+            }
+        }
+
+        private void StartNewGame()
+        {
+            ReadKey(true);
+            Clear();
+            Menu menu2 = new Menu();
+            menu2.Start();
+        }
 
     }
 }

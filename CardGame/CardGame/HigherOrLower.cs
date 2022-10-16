@@ -56,8 +56,16 @@ namespace CardGame
             Print($"Your score is {player.score}!");
             Pause();
             Clear();
+            StartNewGame();
         }
 
+        private void StartNewGame()
+        {
+            ReadKey(true);
+            Clear();
+            Menu menu2 = new Menu();
+            menu2.Start();
+        }
 
     }
 }
